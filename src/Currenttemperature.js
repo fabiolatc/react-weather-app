@@ -1,6 +1,19 @@
 import './Currenttemperature.css';
+import axios from 'axios';
 
 export default function Currenttemperature() {
+    let city = "Madrid";
+    let apiKey = "3c7e72471b038017abb118fddfa1d953";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(displayForecast);
+
+    function displayForecast(response) {
+        let temperature = Math.round(response.data.main.temp)
+        let humidity = Math.round(response.data.main.humidity)
+        console.log(humidity)
+    }
+
+
     return (
  <div className="row">
      <div className="col-7">
