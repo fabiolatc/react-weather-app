@@ -1,0 +1,22 @@
+.temperature {
+    font-size: 70px;
+    margin: 5px;
+    text-align: left;
+    color: #dddddd;
+    padding: 5px;
+    float:left;
+    line-height: 1;
+  }
+
+  .temp-info img {width: 80px;
+    position:relative;
+    float: left;
+    }
+
+    .temp-info small {float: left;
+        padding-top: 20px;
+        margin: 0;
+       }
+
+.temperature-shown {display: inline-block;
+ ;}
