@@ -20,6 +20,10 @@
 
 .temperature-shown {display: inline-block;
  ;}
+
  .description {font-style: italic;
-    text-transform: capitalize;
-    color: #3c4245;}
+    text-transform: capitalize; 
+    color:black;}
+
+li {list-style: none;
+color:#5f6769}

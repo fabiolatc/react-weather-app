@@ -1,8 +1,8 @@
 import './Currentcity.css'
 
 export default function Currentcity() {
-    return (
     
+    return (
     <div className="Currentcity">
     <p className="city" id="city"> Guayaquil</p>
     <ul>
@@ -11,5 +11,5 @@ export default function Currentcity() {
     </ul>
 
 </div>
-    )
+    );
 }
