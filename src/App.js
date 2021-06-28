@@ -14,7 +14,6 @@ function App() {
         <Search />
         <Currentcity/>
         <Currenttemperature/>
-
       </div>
     </div>
   );
