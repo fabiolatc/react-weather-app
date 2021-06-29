@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <div className="container">
         <Search />
-        <Currentcity/>
-        <Currenttemperature/>
+        <Currentcity city="Guayaquil"/>
+        <Currenttemperature />
       </div>
     </div>
   );
