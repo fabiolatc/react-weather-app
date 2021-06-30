@@ -6,55 +6,30 @@ import axios from 'axios';
 export default function Currentcity(props) {
     let [text, changeText] = useState(props.city);
     let [temperature, changeTemperature] = useState("");  
-    let [description, changeDescription] = useState("");  
-    let [humidity, changeHumidity] = useState("");  
-    let [wind, changeWind] = useState("");  
-   
-let [city, cityAnswer] = useState(`${text}`);  
-let APIkey = "3c7e72471b038017abb118fddfa1d953";
+let [description, changeDescription] = useState("");  
+let [humidity, changeHumidity] = useState("");  
+let [wind, changeWind] = useState("");  
+    let APIkey = "3c7e72471b038017abb118fddfa1d953";
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIkey}&units=metric`;
 axios.get(url).then(defaultTemperature);
 
 
-
-function defaultTemperature(response) { changeTemperature(Math.round(response.data.main.temp));
-    changeDescription(response.data.weather[0].description);
-    changeHumidity(response.data.main.humidity);
+function defaultTemperature(response) { 
+    changeTemperature(Math.round(response.data.main.temp))
+    changeDescription(response.data.weather[0].description)
+    changeHumidity(response.data.main.humidity)
     changeWind(response.data.wind.speed);
-
-
-
-}
-
-
-function updateCity(event) {
-
-cityAnswer(event.target.value);
-  }
-
-  function searchCity(event) {
-
-    let APIkey = "3c7e72471b038017abb118fddfa1d953";
-   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
-   axios.get(url).then(cityTemperature);
-    event.preventDefault();
-}
-
-  function cityTemperature(response) {
-      changeText(`${city}`)
-   changeTemperature(Math.round(response.data.main.temp));
-   changeDescription(response.data.weather[0].description);
-   changeHumidity(response.data.main.humidity);
-   changeWind(response.data.wind.speed);
    
-    }
+}
+
+  
     return (
         <div className="Currentcity">
 
-<form id="search-city" onSubmit={searchCity}>
+<form id="search-city" >
          <div class="row">
              <div class="col-9">
-                 <input type="text" id="searched-city" className="form-control" placeholder="Type a city..." onChange={updateCity}></input>
+                 <input type="text" id="searched-city" className="form-control" placeholder="Type a city..." ></input>
             </div>
             <div class="col-3">
                 <input type="submit" id="search-button" value = "Search" className="btn btn-primary" ></input>

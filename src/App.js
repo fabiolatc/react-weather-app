@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <div className="container">
      
-        <Currentcity city="Guayaquil"/>
+        <Currentcity city="Madrid"/>
 
       </div>
     </div>
