@@ -4,17 +4,16 @@ import axios from 'axios';
 
 
 export default function Currentcity(props) {
+    let [text, changeText] = useState(props.city);
     let [temperature, changeTemperature] = useState("");  
     let [description, changeDescription] = useState("");  
     let [humidity, changeHumidity] = useState("");  
     let [wind, changeWind] = useState("");  
    
-let [city, cityAnswer] = useState(props.city);  
+let [city, cityAnswer] = useState(`${text}`);  
 let APIkey = "3c7e72471b038017abb118fddfa1d953";
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
+let url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIkey}&units=metric`;
 axios.get(url).then(defaultTemperature);
-
-
 
 
 
@@ -29,7 +28,7 @@ function defaultTemperature(response) { changeTemperature(Math.round(response.da
 
 
 function updateCity(event) {
-event.preventDefault();
+
 cityAnswer(event.target.value);
   }
 
@@ -42,6 +41,7 @@ cityAnswer(event.target.value);
 }
 
   function cityTemperature(response) {
+      changeText(`${city}`)
    changeTemperature(Math.round(response.data.main.temp));
    changeDescription(response.data.weather[0].description);
    changeHumidity(response.data.main.humidity);
@@ -62,7 +62,7 @@ cityAnswer(event.target.value);
         </div>
     </form>
     
-    <p className="city" id="city">{city}</p>
+    <p className="city" id="city">{text}</p>
     <ul>
     <li>8h00 Sunday  | </li>
     <li>January 17th 2021</li>
