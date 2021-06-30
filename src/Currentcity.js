@@ -6,6 +6,9 @@ import axios from 'axios';
 export default function Currentcity(props) {
 let [city, cityAnswer] = useState(props.city);  
 let [temperature, changeTemperature] = useState("");  
+let [description, changeDescription] = useState("");  
+let [humidity, changeHumidity] = useState("");  
+let [wind, changeWind] = useState("");  
 
 
 function updateCity(event) {
@@ -23,9 +26,9 @@ cityAnswer(event.target.value);
 
   function cityTemperature(response) {
    changeTemperature(Math.round(response.data.main.temp));
-     ///     changeDescription(response.data.weather[0].description);
-      ///    changeHumidity(response.data.main.humidity);
-      ///    changeWind(response.data.wind.speed);
+   changeDescription(response.data.weather[0].description);
+   changeHumidity(response.data.main.humidity);
+   changeWind(response.data.wind.speed);
    
     }
     return (
@@ -52,7 +55,7 @@ cityAnswer(event.target.value);
     <div className="col-7">
     <div className="temp-info">
     <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="cloudy" border="0" id="icon"></img>
-    <p className="temperature"> <span className="temperature-shown">30</span>°</p>
+    <p className="temperature"> <span className="temperature-shown">{temperature}</span>°</p>
     <small><a href="#temperature-values" id="celcius"clasName="celcius">C |</a>
      <a href="#" id="farh" className= "farh">F</a></small>
     </div>
@@ -60,9 +63,9 @@ cityAnswer(event.target.value);
 
     <div className="col-5">
    <ul>
-   <li className="description">  light intensity drizzle </li>
-   <li>💦  Humidity: <span  className="humidity-list">50%</span></li>
-   <li >💨 Wind speed: <span className="wind-list">4 km/h</span></li>
+   <li className="description">{description} </li>
+   <li>💦  Humidity: <span  className="humidity-list">{humidity}%</span></li>
+   <li >💨 Wind speed: <span className="wind-list">{wind}km/h</span></li>
    </ul>
 </div>
 
