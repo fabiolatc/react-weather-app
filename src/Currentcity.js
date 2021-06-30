@@ -4,11 +4,28 @@ import axios from 'axios';
 
 
 export default function Currentcity(props) {
+    let [temperature, changeTemperature] = useState("");  
+    let [description, changeDescription] = useState("");  
+    let [humidity, changeHumidity] = useState("");  
+    let [wind, changeWind] = useState("");  
+   
 let [city, cityAnswer] = useState(props.city);  
-let [temperature, changeTemperature] = useState("");  
-let [description, changeDescription] = useState("");  
-let [humidity, changeHumidity] = useState("");  
-let [wind, changeWind] = useState("");  
+let APIkey = "3c7e72471b038017abb118fddfa1d953";
+let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
+axios.get(url).then(defaultTemperature);
+
+
+
+
+
+function defaultTemperature(response) { changeTemperature(Math.round(response.data.main.temp));
+    changeDescription(response.data.weather[0].description);
+    changeHumidity(response.data.main.humidity);
+    changeWind(response.data.wind.speed);
+
+
+
+}
 
 
 function updateCity(event) {
@@ -68,17 +85,7 @@ cityAnswer(event.target.value);
    <li >💨 Wind speed: <span className="wind-list">{wind}km/h</span></li>
    </ul>
 </div>
-
-
-
-
     </div>
-
-
-
-
 </div>
-
-
 );
 }
