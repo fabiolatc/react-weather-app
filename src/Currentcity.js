@@ -4,25 +4,30 @@ import axios from 'axios';
 
 
 export default function Currentcity(props) {
-    let [text, changeText] = useState(props.city);
-    let [temperature, changeTemperature] = useState("");  
-let [description, changeDescription] = useState("");  
-let [humidity, changeHumidity] = useState("");  
-let [wind, changeWind] = useState("");  
+    let [city, setCity] = useState(props.defaultcity);
+    let [temperature, changeTemperature] = useState("");
+    let [description, changeDescription] = useState("");
+    let [humidity, changeHumidity] = useState("");
+    let [wind, changeWind] = useState("");
     let APIkey = "3c7e72471b038017abb118fddfa1d953";
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIkey}&units=metric`;
-axios.get(url).then(defaultTemperature);
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
+    axios.get(url).then(updateData);
+
+console.log(city)
+    function updateData(response) {
+        changeTemperature(Math.round(response.data.main.temp));
+        changeDescription(response.data.weather[0].description);
+        changeHumidity(response.data.main.humidity);
+        changeWind(response.data.wind.speed);
+    } 
 
 
-function defaultTemperature(response) { 
-    changeTemperature(Math.round(response.data.main.temp))
-    changeDescription(response.data.weather[0].description)
-    changeHumidity(response.data.main.humidity)
-    changeWind(response.data.wind.speed);
-   
-}
 
-  
+
+
+
+
+
     return (
         <div className="Currentcity">
 
@@ -37,7 +42,7 @@ function defaultTemperature(response) {
         </div>
     </form>
     
-    <p className="city" id="city">{text}</p>
+    <p className="city" id="city">{city}</p>
     <ul>
     <li>8h00 Sunday  | </li>
     <li>January 17th 2021</li>
@@ -55,7 +60,7 @@ function defaultTemperature(response) {
 
     <div className="col-5">
    <ul>
-   <li className="description">{description} </li>
+   <li className="description">{description}</li>
    <li>💦  Humidity: <span  className="humidity-list">{humidity}%</span></li>
    <li >💨 Wind speed: <span className="wind-list">{wind}km/h</span></li>
    </ul>
