@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormatedDate from './FormatedDate'
-import axios from 'axios'; 
+import './Weatherinfo.css';
+import Temperature from './Temperature'
 
 
 
@@ -17,9 +18,7 @@ export default function Weatherinfo(props) {
   <div className="col-7">
   <div className="temp-info">
   <img src={props.data.icon} alt="cloudy" border="0" id="icon"></img>
-  <p className="temperature"> <span className="temperature-shown">{props.data.temperature}</span>°</p>
-  <small><a href="#temperature-values" id="celcius"className="celcius">C |</a>
-   <a href="#" id="farh" className= "farh">F</a></small>
+  <Temperature metric={props.data.temperature}/>
   </div>
   </div>
 
