@@ -16,7 +16,7 @@ export default function Weatherinfo(props) {
   <div className="row">
   <div className="col-7">
   <div className="temp-info">
-  <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="cloudy" border="0" id="icon"></img>
+  <img src={props.data.icon} alt="cloudy" border="0" id="icon"></img>
   <p className="temperature"> <span className="temperature-shown">{props.data.temperature}</span>°</p>
   <small><a href="#temperature-values" id="celcius"className="celcius">C |</a>
    <a href="#" id="farh" className= "farh">F</a></small>
