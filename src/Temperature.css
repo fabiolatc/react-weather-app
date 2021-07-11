@@ -1,0 +1,7 @@
+.Temperature {display: inline-block;}
+.temperatureinfo {  font-size: 75px;
+    text-align: left;
+    color: #dddddd;
+    padding: 5px;
+    float:left;
+    line-height: 0.7;}
