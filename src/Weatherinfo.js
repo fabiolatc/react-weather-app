@@ -19,7 +19,7 @@ export default function Weatherinfo(props) {
   <div className="row">
   <div className="col-2">
   <div className="temp-info">
-  <WeatherIcon code={props.data.icon}/>
+  <WeatherIcon code={props.data.icon} size={70}/>
   </div>
   </div>
   <div className="col-5">
@@ -34,8 +34,8 @@ export default function Weatherinfo(props) {
  <li >💨 Wind speed: <span className="wind-list">{props.data.wind} km/h</span></li>
  </ul>
 </div>
+<hr></hr>
 
-<WeatherForecast />
   </div>
   </div>
   </div>

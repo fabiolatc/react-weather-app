@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './Currentcity.css'
 import Weatherinfo from './Weatherinfo'
 import axios from 'axios'; 
+import WeatherForecastDay from "./WeatherForecastDay";
+import WeatherForecast from "./WeatherForecast";
 
 
 
@@ -17,8 +19,10 @@ function handleResponse(response) {
 
 setWeatherData ({
 
+   
     ready:true,
-    image: "http://openweathermap.org/img/wn/02d@2x.png",
+    latitude: response.data.coord.lat,
+    longitude: response.data.coord.lon,
     temperature: Math.round(response.data.main.temp),
     description: response.data.weather[0].description,
     humidity:response.data.main.humidity,
@@ -61,6 +65,9 @@ return(
         </div>
     </form>
     <Weatherinfo data={weatherData} city={city} />
+    <WeatherForecast latitude={weatherData.latitude} longitude={weatherData.longitude}/>
+    
+
 </div>)
 
 }
