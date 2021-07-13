@@ -22,12 +22,12 @@ export default function Weatherinfo(props) {
   <WeatherIcon code={props.data.icon} size={70}/>
   </div>
   </div>
-  <div className="col-5">
+  <div className="col">
   <Temperature metric={props.data.temperature}/>
 
   </div>
 
-  <div className="col-5">
+  <div className="col">
  <ul>
  <li className="description">{props.data.description}</li>
  <li>💦  Humidity: <span  className="humidity-list">{props.data.humidity}%</span></li>

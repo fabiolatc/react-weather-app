@@ -20,10 +20,10 @@ setUnit("celcius")
 if (unit === "celcius") {
 
     return (
+        <div className="row">
         <div className="temperaturediv">
-        <p className="temperatureinfo"> <span className="temperature-shown">{props.metric}</span>°</p>
-  <small><a href="#temperature-values" id="celcius"className="celcius" onClick={convertoCelcius}>C |</a>
-   <a href="#" id="farh" className= "farh" onClick={changeFahrenheit}>F</a></small>
+        <p className="temperatureinfo"> <span className="temperature-shown">{props.metric}°</span></p>
+        </div>
    </div>
     );
 } 
@@ -31,12 +31,7 @@ else {
 
     let fahrenheit = (props.metric  * 9 / 5) + 32;
 
-return (
-    <div className="temperaturediv">
-    <p className="temperatureinfo"> <span className="temperature-shown">{Math.round(fahrenheit)}</span>°</p>
-<small><a href="#temperature-values" id="celcius"className="celcius" onClick={convertoCelcius}>C |</a>
-<a href="#" id="farh" className= "farh" onClick={changeFahrenheit}>F</a></small>
-</div>
+return ("Loading"
 )
 }
 }
